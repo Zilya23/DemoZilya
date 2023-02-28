@@ -37,14 +37,24 @@ namespace DemoZilya.Pages
             {"Все", "0-10%", "11-14%", "15% и более" };
             cbFiltr.ItemsSource = filtr;
 
-            tbName.Text = user.Lastname + " " + user.Name + " " + user.Patronymic;
+            if (user != null)
+            {
+                tbName.Text = user.Lastname + " " + user.Name + " " + user.Patronymic;
+            }
+            else
+                tbName.Text = "Гость";
+
+            if(user == null || user.IDRole != 3)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+            }
 
             DataContext = this;
         }
 
         private void lvProd_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(lvProd.SelectedItem != null)
+            if(user != null && lvProd.SelectedItem != null && AuthorizationPage.user.IDRole == 3)
             {
                 var select = lvProd.SelectedItem as Product;
                 NavigationService.Navigate(new ProductPage(select, false));
@@ -86,6 +96,11 @@ namespace DemoZilya.Pages
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ProductPage(null));
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
         }
     }
 }

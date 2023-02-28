@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:DemoZilya.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductPage">
+      Title="ProductPage"
+      FontFamily="Candara"
+      Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -33,16 +35,22 @@
                 Content="Назад"
                 Grid.Column="0"
                 Grid.Row="0"
+                FontSize="20"
+                Background="#B3F4E9"
                 Click="btnBack_Click"/>
         <Button x:Name="btnDel"
                 Content="Удалить"
                 Grid.Column="6"
                 Grid.Row="0"
+                Background="#B3F4E9"
+                FontSize="20"
                 Click="btnDel_Click"/>
         <Button x:Name="btnSave"
                 Content="Сохранить"
                 Grid.Column="7"
                 Grid.Row="0"
+                FontSize="20"
+                Background="#B3F4E9"
                 Click="btnSave_Click"/>
 
         <TextBlock Text="Артикул"
@@ -52,10 +60,12 @@
                    VerticalAlignment="Top"
                    Margin="10, 0"/>
         <TextBox Text="{Binding Product.Article}"
+                 Name="tbArticle"
                  Grid.Column="0" Grid.ColumnSpan="2"
                  Grid.Row="2"
                  FontSize="20"
                  Margin="10,0"
+                 Background="#B3F4E9"
                  VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Наименование"
@@ -69,6 +79,7 @@
                  Grid.Row="3"
                  FontSize="20"
                  Margin="10,0"
+                 Background="#B3F4E9"
                  VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Количество на складе"
@@ -81,6 +92,7 @@
                  Grid.Column="0" Grid.ColumnSpan="2"
                  Grid.Row="4"
                  FontSize="20"
+                 Background="#B3F4E9"
                  Margin="10,0"
                  VerticalAlignment="Bottom"/>
 
@@ -96,6 +108,7 @@
                   Grid.Row="5"
                   FontSize="20"
                   Margin="10,0"
+                  Background="#B3F4E9"
                   VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Еденица измерения"
@@ -123,6 +136,7 @@
                  Grid.Row="2"
                  FontSize="20"
                  Margin="10,0"
+                 Background="#B3F4E9"
                  VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Максимальная скидка"
@@ -136,6 +150,7 @@
                  Grid.Row="3"
                  FontSize="20"
                  Margin="10,0"
+                 Background="#B3F4E9"
                  VerticalAlignment="Bottom"/>
 
         <TextBlock Text="Cкидка"
@@ -148,6 +163,7 @@
                  Grid.Column="3" Grid.ColumnSpan="2"
                  Grid.Row="4"
                  FontSize="20"
+                 Background="#B3F4E9"
                  Margin="10,0"
                  VerticalAlignment="Bottom"/>
 
@@ -189,6 +205,7 @@
                 Content="Выбрать фото"
                 Grid.Column="6"
                 Grid.Row="5"
+                Background="#B3F4E9"
                 Click="btnAdd_Click"/>
 
         <TextBlock Text="Описание"
@@ -203,6 +220,7 @@
             <TextBox Text="{Binding Product.Description}"
                      TextWrapping="Wrap"
                      FontSize="20"
+                     Background="#B3F4E9"
                      VerticalAlignment="Bottom"/>
         </ScrollViewer>
     </Grid>

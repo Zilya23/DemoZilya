@@ -57,7 +57,11 @@ namespace DemoZilya.Pages
                 Product = new Product();
             }
             else
+            {
                 Product = product;
+                tbArticle.IsEnabled = false;
+            }
+                
 
             DataContext = this;
         }
@@ -93,16 +97,38 @@ namespace DemoZilya.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if(isNeew)
+            try
             {
-                BDConnection.connection.Product.Add(Product);
-                BDConnection.connection.SaveChanges();
-                NavigationService.Navigate(new ListPage());
+                if (Product.Sale < Product.MaxSale)
+                {
+                    if (Product.Price > 0)
+                    {
+                        if (Product.Count >= 0)
+                        {
+                            if (isNeew)
+                            {
+                                BDConnection.connection.Product.Add(Product);
+                                BDConnection.connection.SaveChanges();
+                                NavigationService.Navigate(new ListPage());
+                            }
+                            else
+                            {
+                                BDConnection.connection.SaveChanges();
+                                NavigationService.Navigate(new ListPage());
+                            }
+                        }
+                        else
+                            MessageBox.Show("Количество не может быть отрицательным");
+                    }
+                    else
+                        MessageBox.Show("Цена не может быть меньше или равна нулю");
+                }
+                else
+                    MessageBox.Show("Скидка не должна быть больше макисмальной скидки");
             }
-            else
+            catch
             {
-                BDConnection.connection.SaveChanges();
-                NavigationService.Navigate(new ListPage());
+                MessageBox.Show("Введите верные данные");
             }
         }
     }

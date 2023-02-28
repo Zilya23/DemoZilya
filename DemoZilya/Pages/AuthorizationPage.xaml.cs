@@ -48,7 +48,8 @@ namespace DemoZilya.Pages
 
         private void btnGuest_Click(object sender, RoutedEventArgs e)
         {
-
+            user = null;
+            NavigationService.Navigate(new ListPage());
         }
     }
 }
