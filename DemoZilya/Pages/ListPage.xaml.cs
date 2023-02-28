@@ -44,10 +44,10 @@ namespace DemoZilya.Pages
 
         private void lvProd_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(lvProd.SelectedItem != null && AuthorizationPage.user.IDRole == 3)
+            if(lvProd.SelectedItem != null)
             {
                 var select = lvProd.SelectedItem as Product;
-                NavigationService.Navigate(new ProductPage(select));
+                NavigationService.Navigate(new ProductPage(select, false));
             }
         }
 
@@ -81,6 +81,11 @@ namespace DemoZilya.Pages
                 products = products.OrderByDescending(x => x.Price).ToList();
 
             lvProd.ItemsSource = products;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductPage(null));
         }
     }
 }

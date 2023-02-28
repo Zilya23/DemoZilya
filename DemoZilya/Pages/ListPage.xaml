@@ -33,6 +33,13 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"/>
 
+        <Button x:Name="btnAdd"
+                Content="Добавить"
+                Grid.Row="0"
+                Grid.Column="4"
+                FontSize="20"
+                Click="btnAdd_Click"/>
+
         <TextBlock Text="Сортировать по цене:"
                    Grid.Column="3" Grid.ColumnSpan="2"
                    Grid.Row="1"
